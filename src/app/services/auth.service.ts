@@ -22,8 +22,9 @@ export class AuthService {
   ) {
     this.user$ = this.afsAuth.authState.pipe(
       switchMap(user => {
+        console.log('asda');
         if (user) {
-          return this.afs.doc<User>(`users/${user.id}`).valueChanges();
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
             return of (null);
         }
@@ -31,7 +32,7 @@ export class AuthService {
     );
   }
 
-  async googleSignin() {
+  async googleSignIn() {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afsAuth.auth.signInWithPopup(provider);
     return this.updateUserData(credential.user);
@@ -39,16 +40,15 @@ export class AuthService {
 
   private updateUserData(user) {
     // Sets user data to firestore on login
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.id}`);
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
     const data = {
-      id: user.id,
+      uid: user.uid,
       email: user.email,
       name: user.name,
     };
 
     return userRef.set(data, { merge: true });
-
   }
 
   async signOut() {
