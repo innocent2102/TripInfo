@@ -1,15 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule } from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
+
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     MatButtonModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
   ],
   exports: [
     MatButtonModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
 })
 export class CoreModule { }
