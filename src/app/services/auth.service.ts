@@ -22,7 +22,6 @@ export class AuthService {
   ) {
     this.user$ = this.afsAuth.authState.pipe(
       switchMap(user => {
-        console.log('asda');
         if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
