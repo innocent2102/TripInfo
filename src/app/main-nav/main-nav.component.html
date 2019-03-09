@@ -5,9 +5,9 @@
       [opened]="!(isHandset$ | async)">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item>Link 1</a>
+      <a mat-list-item>Link 2</a>
+      <a mat-list-item>Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,8 +20,20 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>TripInfo</span>
+      <span class="spacer"></span>
+      <div>
+        <a routerLink="/dashboard">Dashboard</a>
+        <a *ngIf="auth.user$ | async as user; else login"
+          (click)="auth.signOut()">
+          Logout
+        </a>
+        <ng-template #login>
+          <a routerLink="/login">Login</a>
+        </ng-template>
+      </div>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<!-- TODO: Menu expanding should work alike gmail -->
+<!--TODO: add box shadow to nav-bar-->

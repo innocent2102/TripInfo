@@ -5,7 +5,10 @@ $base-bg-color: #3f51b5;
 
 html {
   box-sizing: border-box;
-  font-size: 16px;
+}
+
+body, html{
+  height: 100%;
 }
 
 *, *:before, *:after {
