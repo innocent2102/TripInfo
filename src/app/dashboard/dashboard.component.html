@@ -1,3 +1,5 @@
-<p>
-  dashboard works!
-</p>
+<div *ngIf="trips$ | async as trip">
+  <pre>
+    {{trip | json}}
+  </pre>
+</div>
