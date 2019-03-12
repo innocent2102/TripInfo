@@ -18,6 +18,8 @@ import { SuperSecretComponent } from './super-secret/super-secret.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TripsComponent } from './trips/trips.component';
+import { AttractionsComponent } from './attractions/attractions.component';
+import { TripDetailComponent } from './trips/trip-detail/trip-detail.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { TripsComponent } from './trips/trips.component';
     SuperSecretComponent,
     MainNavComponent,
     DashboardComponent,
-    TripsComponent
+    TripsComponent,
+    AttractionsComponent,
+    TripDetailComponent
   ],
   imports: [
     BrowserModule,

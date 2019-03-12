@@ -5,6 +5,7 @@ import { AuthGuard } from './shared/services/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TripsComponent } from './trips/trips.component';
+import { TripDetailComponent } from './trips/trip-detail/trip-detail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/trips', pathMatch: 'full'},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'trips', component: TripsComponent, canActivate: [AuthGuard]},
+  {path: 'trips/detail/:id', component: TripDetailComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

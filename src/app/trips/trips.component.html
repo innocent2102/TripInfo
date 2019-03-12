@@ -1,5 +1,10 @@
+
+
 <mat-toolbar>Wybierz podróż</mat-toolbar>
 
-<mat-card *ngFor="let trip of trips$ | async">
-  {{trip.name}}
-</mat-card>
+<a *ngFor="let trip of trips$ | async" routerLink="detail/{{trip.id}}">
+    <mat-card>
+      {{trip.name}}
+    </mat-card>
+</a>
+

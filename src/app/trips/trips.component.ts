@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../shared/services/auth.service';
 import { TripService } from './shared/trip.service';
 import { take } from 'rxjs/operators';
+import { Trip } from './shared/trip';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trips',
@@ -11,17 +13,15 @@ import { take } from 'rxjs/operators';
 })
 export class TripsComponent implements OnInit {
 
-  trips$: Observable<any>;
-  trips: any;
-  first: Date;
+  trips$: Observable<Trip[]>;
+  trips: Trip[];
 
   constructor(
+    private router: Router,
     private tripService: TripService,
     private authService: AuthService) { }
 
   ngOnInit() {
-    this.first = new Date();
-    console.log(this.first);
     this.getTrips();
   }
 
@@ -34,4 +34,7 @@ export class TripsComponent implements OnInit {
   }
 
 
+  // goToTripDetail(trip: Trip) {
+  //   this.router.navigate([`trips/${trip.id}`]);
+  // }
 }
