@@ -1,0 +1,12 @@
+mat-card{
+  margin: 15px;
+  cursor: pointer;
+}
+
+mat-toolbar{
+  justify-content: center;
+  background: #fafafa;
+  -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+}

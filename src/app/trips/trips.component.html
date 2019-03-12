@@ -1,0 +1,5 @@
+<mat-toolbar>Wybierz podróż</mat-toolbar>
+
+<mat-card *ngFor="let trip of trips$ | async">
+  {{trip.name}}
+</mat-card>

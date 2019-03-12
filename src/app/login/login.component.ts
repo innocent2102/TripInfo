@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
+import { TripService } from '../trips/shared/trip.service';
 
 @Component({
   selector: 'app-login',
@@ -11,16 +12,17 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(
+    private tripService: TripService,
     public auth: AuthService,
     private router: Router) { }
 
   ngOnInit() {
     this.auth.user$.subscribe(user => {
       if (user) {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/trips']);
       }
-    });
-    //TODO: user can see view with short time. Find solution. Redux?
+    }).unsubscribe();
+    //TODO: user can see view for a short time even if not logged in. Find solution. Redux?
   }
 
 }

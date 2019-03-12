@@ -1,3 +1,6 @@
+# Warning
+
+This repository is lack of environment.ts file for security reasons. It contains firebase config including api key. Add this file for proper working. [More info here](https://firebase.google.com/docs/web/setup)
 # TripInfo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.

@@ -23,6 +23,7 @@ export class AuthService {
     this.user$ = this.afsAuth.authState.pipe(
       switchMap(user => {
         if (user) {
+          console.log('user subscription made');
           return this.af.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
             return of (null);
@@ -52,7 +53,7 @@ export class AuthService {
 
   async signOut() {
     await this.afsAuth.auth.signOut();
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
 }
