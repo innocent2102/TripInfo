@@ -20,6 +20,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TripsComponent } from './trips/trips.component';
 import { AttractionsComponent } from './attractions/attractions.component';
 import { TripDetailComponent } from './trips/trip-detail/trip-detail.component';
+import { PlanComponent } from './plan/plan.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { TripDetailComponent } from './trips/trip-detail/trip-detail.component';
     DashboardComponent,
     TripsComponent,
     AttractionsComponent,
-    TripDetailComponent
+    TripDetailComponent,
+    PlanComponent
   ],
   imports: [
     BrowserModule,

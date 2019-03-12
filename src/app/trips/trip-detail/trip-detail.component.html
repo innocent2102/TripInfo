@@ -1,3 +1,39 @@
-<p>
-  trip-detail works!
-</p>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="plan">Plan wycieczki</a>
+      <a mat-list-item routerLink="attractions">Atrakcje</a>
+      <a mat-list-item routerLink="accommodations">Noclegi</a>
+      <a mat-list-item routerLink="transport">Transport</a>
+      <a mat-list-item routerLink="general-info">Informacje ogólne</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+    </mat-toolbar>
+    <div *ngIf="trip$ | async as trip">
+      <pre>
+        {{trip | json}}
+      </pre>
+    </div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- TODO: Menu expanding should work alike gmail -->
+<!--TODO: add box shadow to nav-bar-->
+
+
+

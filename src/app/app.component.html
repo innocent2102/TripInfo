@@ -1,3 +1,16 @@
-<app-main-nav>
-  <router-outlet></router-outlet>
-</app-main-nav>
+<mat-toolbar color="primary">
+  <div>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a *ngIf="auth.user$ | async; else login"
+       (click)="auth.signOut()">
+      Logout
+    </a>
+    <ng-template #login>
+      <a routerLink="/login">Login</a>
+    </ng-template>
+  </div>
+</mat-toolbar>
+<!-- TODO: Menu expanding should work alike gmail -->
+<!--TODO: add box shadow to nav-bar-->
+
+<router-outlet></router-outlet>

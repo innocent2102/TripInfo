@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
-import { TripService } from '../trips/shared/trip.service';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,17 +11,17 @@ import { TripService } from '../trips/shared/trip.service';
 export class LoginComponent implements OnInit {
 
   constructor(
-    private tripService: TripService,
     public auth: AuthService,
     private router: Router) { }
 
   ngOnInit() {
+    // TODO: user can see view for a short time even if not logged in. Find solution. Redux?
     this.auth.user$.subscribe(user => {
       if (user) {
         this.router.navigate(['/trips']);
       }
-    }).unsubscribe();
-    //TODO: user can see view for a short time even if not logged in. Find solution. Redux?
+    });
   }
+
 
 }

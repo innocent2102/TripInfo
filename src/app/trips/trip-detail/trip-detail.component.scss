@@ -1,0 +1,14 @@
+@import '../../../styles';
+
+:host{
+  display: flex;
+  flex: 1 1 auto;
+}
+
+mat-sidenav-container{
+  flex: 1 1 auto;
+}
+
+mat-toolbar{
+  background: $base-bg-color;
+}

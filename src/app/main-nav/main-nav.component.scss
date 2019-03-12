@@ -1,38 +1,8 @@
-@import "../../styles";
-
-.sidenav-container {
-  height: 100%;
-  mat-toolbar{
-    font-size: 14px;
-    font-family: Roboto,"Helvetica Neue",sans-serif;
-    height: 56px;
-  }
-}
-
-.sidenav {
-  width: 200px;
-}
-
-.sidenav .mat-toolbar {
-  background: $base-bg-color;
-  color: #fff;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-.spacer{
+:host{
+  display: flex;
   flex: 1 1 auto;
 }
 
-mat-sidenav-content{
-  a{
-    margin: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-  }
+mat-sidenav-container{
+  flex: 1 1 auto;
 }
