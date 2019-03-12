@@ -13,14 +13,21 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 export const firebaseConfig = environment.firebaseConfig;
 
+import { NgxsModule } from '@ngxs/store';
+import { TripState } from './shared/state/trip.state';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+
 import { LoginComponent } from './login/login.component';
 import { SuperSecretComponent } from './super-secret/super-secret.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TripsComponent } from './trips/trips.component';
-import { AttractionsComponent } from './attractions/attractions.component';
+import { AttractionsComponent } from './trips/trip-detail/attractions/attractions.component';
 import { TripDetailComponent } from './trips/trip-detail/trip-detail.component';
-import { PlanComponent } from './plan/plan.component';
+import { PlanComponent } from './trips/trip-detail/plan/plan.component';
+import { ReadComponent } from './read/read.component';
+import { CreateComponent } from './create/create.component';
 
 
 @NgModule({
@@ -33,7 +40,9 @@ import { PlanComponent } from './plan/plan.component';
     TripsComponent,
     AttractionsComponent,
     TripDetailComponent,
-    PlanComponent
+    PlanComponent,
+    ReadComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +53,11 @@ import { PlanComponent } from './plan/plan.component';
     BrowserAnimationsModule,
     NgxAuthFirebaseUIModule.forRoot(firebaseConfig),
     CoreModule,
+    NgxsModule.forRoot([
+      TripState
+    ]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot(),
   ],
   bootstrap: [AppComponent]
 })

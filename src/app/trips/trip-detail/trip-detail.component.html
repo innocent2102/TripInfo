@@ -3,7 +3,7 @@
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar></mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="plan">Plan wycieczki</a>
       <a mat-list-item routerLink="attractions">Atrakcje</a>
@@ -13,7 +13,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -24,16 +24,10 @@
       </button>
       <span class="spacer"></span>
     </mat-toolbar>
-    <div *ngIf="trip$ | async as trip">
-      <pre>
-        {{trip | json}}
-      </pre>
-    </div>
+    <!--<h3>Site building in progress...</h3>-->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 <!-- TODO: Menu expanding should work alike gmail -->
 <!--TODO: add box shadow to nav-bar-->
-
-
 

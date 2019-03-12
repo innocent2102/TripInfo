@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TripService } from '../shared/trip.service';
 import { AuthService } from '../../shared/services/auth.service';
@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { Trip } from '../shared/trip';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
+import { AddTrip } from '../../shared/actions/trips.actions';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-trip-detail',
@@ -22,6 +24,7 @@ export class TripDetailComponent implements OnInit {
   trip$: Observable<Trip>;
 
   constructor(
+    private store: Store,
     private breakpointObserver: BreakpointObserver,
     private authService: AuthService,
     private tripService: TripService,
@@ -35,7 +38,14 @@ export class TripDetailComponent implements OnInit {
   getTrip() {
     this.authService.user$.subscribe(user => {
       this.trip$ = this.tripService.getTrip(user.uid, this.tripId);
+      this.trip$.subscribe(trip => {
+        this.addTripToStore(trip.name, trip.id);
+      });
     });
+  }
+
+  addTripToStore(name, id) {
+    this.store.dispatch(new AddTrip({name: name, id: id}));
   }
 
 
