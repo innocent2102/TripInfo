@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { SuperSecretComponent } from './super-secret/super-secret.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TripsComponent } from './trips/trips.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     SuperSecretComponent,
     MainNavComponent,
-    DashboardComponent
+    DashboardComponent,
+    TripsComponent
   ],
   imports: [
     BrowserModule,
