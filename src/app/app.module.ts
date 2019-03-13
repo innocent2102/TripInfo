@@ -44,9 +44,7 @@ import { PlanComponent } from './trips/trip-detail/plan/plan.component';
     BrowserAnimationsModule,
     NgxAuthFirebaseUIModule.forRoot(firebaseConfig),
     CoreModule,
-    NgxsModule.forRoot([
-      TripState
-    ]),
+    NgxsModule.forRoot([TripState], {developmentMode: !environment.production}),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
   ],

@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
   <div>
     <a routerLink="/dashboard">Dashboard</a>
-    <a *ngIf="auth.user$ | async; else login"
+    <a *ngIf="auth.userLoggedIn; else login"
        (click)="auth.signOut()">
-      Logout
+      Sign out
     </a>
     <ng-template #login>
-      <a routerLink="/login">Login</a>
+      <a routerLink="/login">Sign in</a>
     </ng-template>
   </div>
 </mat-toolbar>
