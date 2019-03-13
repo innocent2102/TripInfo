@@ -7,7 +7,7 @@
     <mat-nav-list>
       <mat-expansion-panel #matExpansionPanel mat-elevtion-z2 [hideToggle]="item.children.length === 0" *ngFor="let item of menuItems">
         <mat-expansion-panel-header (click)="expandPanel(matExpansionPanel, item)" >
-          <mat-panel-title color="primary">
+          <mat-panel-title color="primary" [routerLink]="['plan']">
             {{item.name}}
           </mat-panel-title>
         </mat-expansion-panel-header>
