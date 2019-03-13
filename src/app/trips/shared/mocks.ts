@@ -1,32 +1,27 @@
 export const MENU_ITEMS = [{
-    name: 'Dashboard',
+    name: 'Plan wycieczki',
     children: []
   }, {
-    name: 'Statistics',
-    children: [{
-      name: 'Tests'},  {
-      name: 'Devices'},
-      {name: 'Builds'},
-      {name: 'Services'},
-      {name: 'Projects'},
-    ]}, {
-    name: 'Reports',
+    name: 'Atrakcje',
     children: [
-      {name: 'Tests'},
-      {name: 'Devices'},
-      {name: 'Builds'},
-      {name: 'Services'},
-      {name: 'Projects'},
+      {name: 'Miejsca'},
+      {name: 'Plaże'},
+      {name: 'Restauracje'}
     ]}, {
-    name: 'Configurations',
+    name: 'Noclegi',
+    children: []},
+  {
+    name: 'Transport',
     children: []
   }, {
-    name: 'Overview',
-    children: [
-      {name: 'Tests'},
-      {name: 'Devices'},
-      {name: 'Builds'},
-      {name: 'Services'},
-      {name: 'Projects'},
-    ]},
+    name: 'Informacje ogólne',
+    children: []}, {
+    name: 'Rzeczy do zabrania',
+    children: [ ]},
+  {
+    name: 'Koszty',
+    children: [ ]},
+  {
+    name: 'Pogoda',
+    children: [ ]},
 ];
