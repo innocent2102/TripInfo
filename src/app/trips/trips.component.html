@@ -1,6 +1,6 @@
 <mat-toolbar>Wybierz podróż</mat-toolbar>
 
-  <a *ngFor="let trip of trips$ | async" [routerLink]="['detail/', trip.id]">
+  <a *ngFor="let trip of trips$ | async" (click)="chooseTrip(trip)">
     <mat-card>
       {{trip.name}}
     </mat-card>

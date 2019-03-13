@@ -1,13 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { TripService } from '../shared/trip.service';
-import { AuthService } from '../../shared/services/auth.service';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Trip } from '../shared/trip';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
-import { AddTrip } from '../../shared/actions/trips.actions';
-import { Store } from '@ngxs/store';
+import { Trip } from '../shared/trip';
+import { TripService } from '../shared/trip.service';
+import { MENU_ITEMS } from '../shared/mocks';
 
 @Component({
   selector: 'app-trip-detail',
@@ -16,37 +13,25 @@ import { Store } from '@ngxs/store';
 })
 export class TripDetailComponent implements OnInit {
 
+  trip: Trip;
+  menuItems = MENU_ITEMS;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
-  tripId: string;
-  trip$: Observable<Trip>;
 
   constructor(
-    private store: Store,
-    private breakpointObserver: BreakpointObserver,
-    private authService: AuthService,
     private tripService: TripService,
-    private route: ActivatedRoute) { }
+    private breakpointObserver: BreakpointObserver) {
+  }
 
   ngOnInit() {
-    this.tripId = this.route.snapshot.paramMap.get('id');
-    this.getTrip();
+    this.trip = this.tripService.currentTripValue;
   }
 
-  getTrip() {
-    this.authService.user$.subscribe(user => {
-      this.trip$ = this.tripService.getTrip(user.uid, this.tripId);
-      this.trip$.subscribe(trip => {
-        this.addTripToStore(trip.name, trip.id);
-      });
-    });
+  expandPanel(matExpansionPanel, item) {
+    matExpansionPanel.expanded = item.children.length > 0 && matExpansionPanel.expanded;
   }
-
-  addTripToStore(name, id) {
-    this.store.dispatch(new AddTrip({name: name, id: id}));
-  }
-
 
 }

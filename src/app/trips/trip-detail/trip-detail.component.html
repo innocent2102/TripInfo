@@ -5,11 +5,14 @@
                [opened]="!(isHandset$ | async)">
     <mat-toolbar></mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="plan">Plan wycieczki</a>
-      <a mat-list-item routerLink="attractions">Atrakcje</a>
-      <a mat-list-item routerLink="accommodations">Noclegi</a>
-      <a mat-list-item routerLink="transport">Transport</a>
-      <a mat-list-item routerLink="general-info">Informacje ogólne</a>
+      <mat-expansion-panel #matExpansionPanel mat-elevtion-z2 [hideToggle]="item.children.length === 0" *ngFor="let item of menuItems">
+        <mat-expansion-panel-header (click)="expandPanel(matExpansionPanel, item)" >
+          <mat-panel-title color="primary">
+            {{item.name}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p *ngFor="let subItem of item.children">{{subItem.name}}</p>
+      </mat-expansion-panel>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -24,8 +27,6 @@
       </button>
       <span class="spacer"></span>
     </mat-toolbar>
-    <!--<h3>Site building in progress...</h3>-->
-    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 <!-- TODO: Menu expanding should work alike gmail -->

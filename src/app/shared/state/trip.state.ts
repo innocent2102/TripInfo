@@ -1,13 +1,11 @@
-// Section 1
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { AddTrip, RemoveTrip } from '../actions/trips.actions';
 import { Trip } from '../../trips/shared/trip';
 
-// Section 2
 export class TripStateModel {
   trips: Trip[];
 }
-// Section 3
+
 @State<TripStateModel>({
   name: 'trips',
   defaults: {

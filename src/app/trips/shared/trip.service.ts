@@ -2,13 +2,24 @@ import { Injectable } from '@angular/core';
 import { Trip } from './trip';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TripService {
 
-  constructor(private af: AngularFirestore) { }
+  private currentTripSubject: BehaviorSubject<Trip>;
+  public currentTrip: Observable<Trip>;
+
+  constructor(private af: AngularFirestore) {
+    this.currentTripSubject = new BehaviorSubject<Trip>(JSON.parse(localStorage.getItem('currentTrip')));
+    this.currentTrip = this.currentTripSubject.asObservable();
+  }
+
+  public get currentTripValue(): Trip {
+    return this.currentTripSubject.value;
+  }
 
   getTrips(userId: string) {
     return this.af.collection(`users/${userId}/trips`)
@@ -20,10 +31,6 @@ export class TripService {
           return { id, ...data };
         }))
     );
-  }
-
-  getTrip(userId: string, tripId: string) {
-    return this.af.doc<Trip>(`users/${userId}/trips/${tripId}`).valueChanges();
   }
 
 }

@@ -13,36 +13,27 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 export const firebaseConfig = environment.firebaseConfig;
 
-import { NgxsModule } from '@ngxs/store';
+import { NgxsModule  } from '@ngxs/store';
 import { TripState } from './shared/state/trip.state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 import { LoginComponent } from './login/login.component';
-import { SuperSecretComponent } from './super-secret/super-secret.component';
-import { MainNavComponent } from './main-nav/main-nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TripsComponent } from './trips/trips.component';
 import { AttractionsComponent } from './trips/trip-detail/attractions/attractions.component';
 import { TripDetailComponent } from './trips/trip-detail/trip-detail.component';
 import { PlanComponent } from './trips/trip-detail/plan/plan.component';
-import { ReadComponent } from './read/read.component';
-import { CreateComponent } from './create/create.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SuperSecretComponent,
-    MainNavComponent,
     DashboardComponent,
     TripsComponent,
     AttractionsComponent,
     TripDetailComponent,
     PlanComponent,
-    ReadComponent,
-    CreateComponent
   ],
   imports: [
     BrowserModule,

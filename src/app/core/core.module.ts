@@ -1,6 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatCardModule, } from '@angular/material';
+import {
+  MatButtonModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatListModule,
+  MatCardModule,
+  MatExpansionModule,
+} from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 
 
@@ -18,6 +26,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatExpansionModule,
   ],
   exports: [
     MatButtonModule,
@@ -30,6 +39,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatExpansionModule,
   ],
 })
 export class CoreModule { }
