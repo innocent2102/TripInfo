@@ -1,16 +1,63 @@
-<mat-toolbar color="primary">
-  <div>
-    <a routerLink="/dashboard">Dashboard</a>
-    <a *ngIf="auth.userLoggedIn; else login"
-       (click)="auth.signOut()">
-      Sign out
-    </a>
-    <ng-template #login>
-      <a routerLink="/login">Sign in</a>
-    </ng-template>
-  </div>
-</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(tripService.isTripChosen && !(isHandset$ | async))">
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.close()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list>
+      <mat-expansion-panel #matExpansionPanel mat-elevtion-z2 [hideToggle]="item.children.length === 0" *ngFor="let item of menuItems">
+        <mat-expansion-panel-header (click)="expandPanel(matExpansionPanel, item)" >
+          <mat-panel-title color="primary" [routerLink]="['trips/detail/plan']">
+            {{item.name}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p *ngFor="let subItem of item.children">{{subItem.name}}</p>
+      </mat-expansion-panel>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="main-toolbar">
+      <ng-container *ngIf="tripService.isTripChosen">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      </ng-container>
+      <span class="spacer"></span>
+      <div *ngIf="auth.userLoggedIn; else login"
+           class="user-profile"
+           [matMenuTriggerFor]="menu">
+        <i class="material-icons">account_circle</i>
+        <i class="material-icons">arrow_drop_down</i>
+      </div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="auth.signOut()">Log out</button>
+        <button mat-menu-item>Dashboard</button>
+      </mat-menu>
+      <ng-template #login>
+        <a routerLink="/login">Sign in</a>
+      </ng-template>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
 <!-- TODO: Menu expanding should work alike gmail -->
 <!--TODO: add box shadow to nav-bar-->
+<!--TODO: Check closing on 660-886px dimension-->
 
-<router-outlet></router-outlet>
+

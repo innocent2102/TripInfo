@@ -8,6 +8,7 @@ import {
   MatListModule,
   MatCardModule,
   MatExpansionModule,
+  MatMenuModule,
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -27,6 +28,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatListModule,
     MatCardModule,
     MatExpansionModule,
+    MatMenuModule,
   ],
   exports: [
     MatButtonModule,
@@ -40,6 +42,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatListModule,
     MatCardModule,
     MatExpansionModule,
+    MatMenuModule,
   ],
 })
 export class CoreModule { }

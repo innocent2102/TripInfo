@@ -1,12 +1,12 @@
 @import "../styles";
 
-:host{
+:host {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-mat-toolbar{
+.main-toolbar {
   justify-content: flex-end;
   a{
     font-size: 16px;
@@ -20,4 +20,15 @@ mat-toolbar{
   }
 }
 
+.user-profile{
+  display: flex;
+  cursor: pointer;
+}
 
+.spacer{
+  flex: 1 1 auto;
+}
+mat-sidenav-container{
+  height: 100%;
+
+}

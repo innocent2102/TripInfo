@@ -1,15 +1,15 @@
 export interface Trip {
   name: string;
   id: string;
-  date: Date;
-  plan: Plan;
-  placesToVisit: PlacesToVisit;
-  accommodation: Accommodation[];
-  generalInfo: GeneralInfo;
-  transport: Transport;
-  packingList: PackingList;
-  costs: Cost[];
-  weather: Weather;
+  // date: Date;
+  // plan: Plan;
+  // placesToVisit: PlacesToVisit;
+  // accommodation: Accommodation[];
+  // generalInfo: GeneralInfo;
+  // transport: Transport;
+  // packingList: PackingList;
+  // costs: Cost[];
+  // weather: Weather;
 }
 
 export interface Plan {

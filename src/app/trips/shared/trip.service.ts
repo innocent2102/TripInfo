@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthService } from '../../shared/services/auth.service';
+import { DataHelper } from './helpers/DataHelper';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,14 @@ export class TripService {
 
   public get currentTripValue(): Trip {
     return this.currentTripSubject.value;
+  }
+
+  public get isTripChosen(): boolean {
+    return DataHelper.hasValue(localStorage.getItem('currentTrip'));
+  }
+
+  clearChosenTrip() {
+    localStorage.removeItem('currentTrip');
   }
 
   getTrips() {

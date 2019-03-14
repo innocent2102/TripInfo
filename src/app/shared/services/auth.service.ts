@@ -40,7 +40,7 @@ export class AuthService {
 
   async signOut() {
     await this.afsAuth.auth.signOut();
-    localStorage.removeItem('currentUser');
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
 

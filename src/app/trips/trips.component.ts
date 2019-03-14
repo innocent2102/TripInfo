@@ -21,6 +21,7 @@ export class TripsComponent implements OnInit {
     private tripService: TripService) { }
 
   ngOnInit() {
+    this.tripService.clearChosenTrip();
     this.trips$ = this.tripService.getTrips();
   }
 

@@ -1,3 +1,19 @@
-<p>
-  plan works!
-</p>
+<div class="item-list">
+  <div class="item" *ngFor="let item of sampleList">
+    <div class="item-description">
+      <ul>
+        <li *ngFor="let description of item.description">
+          {{description}}
+        </li>
+      </ul>
+    </div>
+    <div class="item-date">
+      <span class="date-day">
+        {{item.date | date: 'dd'}}
+      </span>
+      <span>
+        {{item.date | date: 'LLL'}}
+      </span>
+    </div>
+  </div>
+</div>
