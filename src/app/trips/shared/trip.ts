@@ -1,3 +1,28 @@
+export interface Trip {
+  name: string;
+  id: string;
+  date: Date;
+  plan: Plan;
+  placesToVisit: PlacesToVisit;
+  accommodation: Accommodation[];
+  generalInfo: GeneralInfo;
+  transport: Transport;
+  packingList: PackingList;
+  costs: Cost[];
+  weather: Weather;
+}
+
+export interface Plan {
+  date: Date;
+  description: string;
+}
+
+export interface PlacesToVisit {
+  attractions: Attraction[];
+  beaches: Beach[];
+  restaurants: Restaurant[];
+}
+
 export interface Attraction {
   name: string;
   city?: string;
@@ -22,37 +47,46 @@ export interface Restaurant {
   city?: string;
 }
 
-export interface Plan {
-  date: Date;
-  description: string;
+export interface Accommodation {
+  name: string;
+  dateFrom: Date;
+  dateTo: Date;
+  price: number;
+  checkinTime?: Date;
+  checkoutTime?: Date;
+  address: string;
+  contactNumber: number;
+  paymentMethod: string;
+  additionalInfo?: string;
 }
 
-export interface Departure {
-  dateFrom: string;
-  timeFrom: string;
-  city: string;
-  flightLength: string;
-  flightNumber?: string;
+export interface Transport {
+  flights: Flight[];
+  carRentals: CarRental[];
 }
 
-export interface Arrival {
-  dateFrom: string;
+export interface Flight {
+  dateFrom: Date;
+  dateTo: Date;
   timeFrom: string;
-  city: string;
-  flightTime?: string;
-  flightNumber?: string;
+  timeTo: string;
+  cityFrom: string;
+  cityTo: string;
+  flightLength: number;
+  flightNumber: string;
 }
 
 export interface CarRental {
   name: string;
+  price: number;
   car?: string;
-  price?: number;
   url?: string;
 }
 
-export interface GeneralInformation {
+export interface GeneralInfo {
   internet: Internet[];
-
+  emergencyNumbers: EmergencyNumber[];
+  usefulLinks: UsefulLink[];
 }
 
 export interface Internet {
@@ -62,12 +96,12 @@ export interface Internet {
   additionalInfo: string;
 }
 
-export interface UsefulLinks {
+export interface UsefulLink {
   name: string;
   url: string;
 }
 
-export interface EmergencyNumbers {
+export interface EmergencyNumber {
   name: string;
   number: number;
 }
@@ -76,7 +110,8 @@ export interface PackingList {
   name: string;
 }
 
-export interface Costs {
+export interface Cost {
+  transportCosts: TransportCosts;
   accommodation?: number;
   attractions?: number;
   food?: number;
@@ -95,7 +130,3 @@ export interface Weather {
   celsiusDegrees: number;
 }
 
-export interface Trip {
-  name: string;
-  id: string;
-}
