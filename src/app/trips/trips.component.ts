@@ -25,7 +25,6 @@ export class TripsComponent implements OnInit {
     this.trips$ = this.tripService.getTrips();
   }
 
-  // TODO: Trips should be add to store on user click not component init
   addTripToStore(name, id) {
     this.store.dispatch(new AddTrip({name, id}));
   }

@@ -28,7 +28,30 @@
 .spacer{
   flex: 1 1 auto;
 }
+
 mat-sidenav-container{
   height: 100%;
-
 }
+
+mat-sidenav {
+  width: 222px;
+}
+
+.trip-info-label {
+  font-size: 18px;
+  margin-left: 5px;
+  flex: 1 1 auto;
+}
+
+mat-expansion-panel-header {
+  padding-left: 15px;
+}
+
+.menu-item {
+  align-items: center;
+  .item-name {
+    margin-left: 10px;
+  }
+}
+
+

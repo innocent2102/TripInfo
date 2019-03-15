@@ -3,12 +3,10 @@
 }
 
 .item{
-
   box-shadow: 0px 0px 6px -1px rgba(150, 150, 150, 0.89);
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
-
   margin: 15px 5px;
 }
 
@@ -21,11 +19,12 @@
   font-size: 12px;
   padding: 10px 15px;
   color: rgb(77, 77, 77);
-  border-left: 1px solid lightgrey;
+  border-left: 2px solid lightgrey;
 }
 
 .date-day{
   font-size: 16px;
+  letter-spacing: 1px;
 }
 
 .item-description {
@@ -38,6 +37,6 @@
 li{
   padding: 5px;
   margin-left: 15px;
-  list-style-type: initial;
+  list-style-type: circle;
 }
 

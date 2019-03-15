@@ -11,20 +11,20 @@ import { DataHelper } from './helpers/DataHelper';
 })
 export class TripService {
 
-  private currentTripSubject: BehaviorSubject<Trip>;
+  private currentTripSubject$: BehaviorSubject<Trip>;
   public currentTrip: Observable<Trip>;
 
   constructor(
     private authService: AuthService,
     private af: AngularFirestore) {
-    this.currentTripSubject = new BehaviorSubject<Trip>(JSON.parse(localStorage.getItem('currentTrip')));
-    this.currentTrip = this.currentTripSubject.asObservable();
+    this.currentTripSubject$ = new BehaviorSubject<Trip>(JSON.parse(localStorage.getItem('currentTrip')));
+    this.currentTrip = this.currentTripSubject$.asObservable();
   }
 
-  public get currentTripValue(): Trip {
-    return this.currentTripSubject.value;
+  currentTripValue(): Trip {
+    return this.currentTripSubject$.value;
   }
-
+  // TODO: Check if this is not produce memory leaks
   public get isTripChosen(): boolean {
     return DataHelper.hasValue(localStorage.getItem('currentTrip'));
   }

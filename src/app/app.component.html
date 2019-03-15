@@ -16,8 +16,11 @@
     <mat-nav-list>
       <mat-expansion-panel #matExpansionPanel mat-elevtion-z2 [hideToggle]="item.children.length === 0" *ngFor="let item of menuItems">
         <mat-expansion-panel-header (click)="expandPanel(matExpansionPanel, item)" >
-          <mat-panel-title color="primary" [routerLink]="['trips/detail/plan']">
-            {{item.name}}
+          <mat-panel-title class="menu-item" color="primary" [routerLink]="['trips/detail/plan']">
+            <i class="material-icons">{{item.icon}}</i>
+           <span class="item-name">
+             {{item.name}}
+           </span>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <p *ngFor="let subItem of item.children">{{subItem.name}}</p>
@@ -36,7 +39,7 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
       </ng-container>
-      <span class="spacer"></span>
+      <span class="trip-info-label">Trip Info</span>
       <div *ngIf="auth.userLoggedIn; else login"
            class="user-profile"
            [matMenuTriggerFor]="menu">

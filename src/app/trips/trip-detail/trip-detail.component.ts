@@ -27,7 +27,7 @@ export class TripDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.trip = this.tripService.currentTripValue;
+    this.trip = this.tripService.currentTripValue();
   }
 
   expandPanel(matExpansionPanel, item) {
