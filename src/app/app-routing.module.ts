@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TripsComponent } from './trips/trips.component';
 import { TripDetailComponent } from './trips/trip-detail/trip-detail.component';
 import { PlanComponent } from './trips/trip-detail/plan/plan.component';
-import { AttractionsComponent } from './trips/trip-detail/attractions/attractions.component';
+import { PlacesComponent } from './trips/trip-detail/places/places.component';
 
 const routes: Routes = [
 
@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'trips', component: TripsComponent, canActivate: [AuthGuard]},
   {path: 'trips/detail', component: TripDetailComponent, canActivate: [AuthGuard]},
   {path: 'trips/detail/plan', component: PlanComponent, canActivate: [AuthGuard]},
-  {path: 'attractions', component: AttractionsComponent, canActivate: [AuthGuard]},
+  {path: 'attractions', component: PlacesComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: '/trips', pathMatch: 'full'},
 ];
 

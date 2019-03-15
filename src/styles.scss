@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-$base-bg-color: #3f51b5;
+$brand-color: #3f51b5;
+$brand-icon-color: #323232;
+$brand-font-color: rgba(0, 0, 0, 0.87);
+$brand-border-color: #969696;
 
 html {
   box-sizing: border-box;
@@ -29,6 +32,15 @@ ol, ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+span:focus{
+  outline: none;
+}
+
+mat-panel-title {
+  outline: none;
+
 }
 
 .flex{

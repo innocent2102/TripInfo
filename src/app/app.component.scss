@@ -31,10 +31,19 @@
 
 mat-sidenav-container{
   height: 100%;
-}
 
-mat-sidenav {
-  width: 222px;
+  mat-sidenav {
+    width: 222px;
+
+    i{
+      color: rgba($brand-icon-color, 0.8);
+    }
+  }
+
+  .mat-drawer-side{
+    border: none;
+  }
+
 }
 
 .trip-info-label {
@@ -44,14 +53,28 @@ mat-sidenav {
 }
 
 mat-expansion-panel-header {
-  padding-left: 15px;
+  padding: 0 15px;
 }
 
 .menu-item {
   align-items: center;
+
   .item-name {
     margin-left: 10px;
   }
 }
 
+.mat-list-base{
+  padding: 0;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgba($brand-border-color, 0.3);
+}
+
+mat-sidenav-content{
+  box-shadow: inset 3px 0 10px -6px rgba(0, 0, 0, 0.75);
+}
 

@@ -21,7 +21,7 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TripsComponent } from './trips/trips.component';
-import { AttractionsComponent } from './trips/trip-detail/attractions/attractions.component';
+import { PlacesComponent } from './trips/trip-detail/places/places.component';
 import { TripDetailComponent } from './trips/trip-detail/trip-detail.component';
 import { PlanComponent } from './trips/trip-detail/plan/plan.component';
 
@@ -31,7 +31,7 @@ import { PlanComponent } from './trips/trip-detail/plan/plan.component';
     LoginComponent,
     DashboardComponent,
     TripsComponent,
-    AttractionsComponent,
+    PlacesComponent,
     TripDetailComponent,
     PlanComponent,
   ],

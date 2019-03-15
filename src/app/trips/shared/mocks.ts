@@ -3,8 +3,8 @@ export const MENU_ITEMS = [{
     icon: 'event_note',
     children: []
   }, {
-    name: 'Atrakcje',
-    icon: 'local_see',
+    name: 'Miejsca',
+    icon: 'local_offer',
     children: [
       {name: 'Miejsca'},
       {name: 'Plaże'},
