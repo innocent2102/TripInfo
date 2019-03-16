@@ -6,9 +6,9 @@ export const MENU_ITEMS = [{
     name: 'Miejsca',
     icon: 'local_offer',
     children: [
-      {name: 'Miejsca'},
-      {name: 'Plaże'},
-      {name: 'Restauracje'}
+      {name: 'Attrakcje', icon: 'local_see'},
+      {name: 'Plaże', icon: 'beach_access'},
+      {name: 'Restauracje', icon: 'local_restaurant'}
     ]}, {
     name: 'Noclegi',
      icon: 'hotel',

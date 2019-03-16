@@ -33,6 +33,6 @@ export class TripsComponent implements OnInit {
     this.addTripToStore(trip.name, trip.id);
     localStorage.setItem('currentTrip', JSON.stringify(trip));
     // TODO: Probably to remove due to different solution of data share
-    this.router.navigate([`trips/detail`]);
+    this.router.navigate([`trips/detail/plan`]);
   }
 }
