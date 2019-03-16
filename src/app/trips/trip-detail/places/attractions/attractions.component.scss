@@ -1,0 +1,54 @@
+@import "../../../../../styles";
+
+.main-content{
+  padding: 15px;
+
+  .mat-card-title{
+    color: $brand-color;
+    cursor: pointer;
+  }
+
+  .mat-card-subtitle{
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+
+    i{
+      font-size: 20px;
+    }
+
+    .attraction-time{
+      margin-left: 5px;
+    }
+
+    .price-icon{
+      margin-left: 10px;
+      margin-right: -2px;
+    }
+  }
+
+  .mat-card{
+    max-width: 350px;
+    min-width: 290px;
+    margin: 20px;
+
+    .mat-card-avatar{
+      display: none;
+    }
+
+    mat-card-header{
+      .mat-card-header-text{
+        margin: 0;
+      }
+    }
+
+    .mat-card-image{
+      width: calc(100% + 32px);
+      margin: 0 0 10px -16px;
+    }
+
+    img{
+      max-width: none;
+    }
+  }
+}

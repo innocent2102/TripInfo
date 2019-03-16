@@ -4,7 +4,8 @@ export interface Attraction {
   photoURL?: string;
   description?: string;
   addressLink?: string;
-  price?: number;
-  openingHours?: string;
+  price?: string;
+  openFromTime?: Date;
+  openToTime?: Date;
   additionalInfo?: string;
 }

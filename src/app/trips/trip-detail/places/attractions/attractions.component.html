@@ -1,6 +1,38 @@
-<p>
-  attractions works!
-</p>
-<div *ngIf="attractions$ | async as attraction">
-  {{attraction | json}}
+<div class="main-content">
+  <ng-container *ngIf="attractions$ | async as attractions">
+    <mat-card *ngFor="let attraction of attractions">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title (click)="onNavigate(attraction.addressLink)">{{attraction.name}}</mat-card-title>
+        <mat-card-subtitle>
+
+          <!--Available Time-->
+          <i class="material-icons">access_time</i>
+          <span *ngIf="attraction.openFromTime && attraction.openToTime; else allDay" class="attraction-time">{{attraction?.openFromTime}} - {{attraction.openToTime}}</span>
+          <ng-template #allDay>
+            <span class="attraction-time">Cały dzień</span>
+          </ng-template>
+
+          <!--Price-->
+          <i class="material-icons price-icon">attach_money</i>
+          <span *ngIf="attraction.price; else free">{{attraction.price}} {{currency}}</span>
+          <ng-template #free>
+            <span>Free</span>
+          </ng-template>
+          </mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="attraction.photoURL" alt="Wat Pho">
+      <mat-card-content>
+        <div>
+          <p>
+            {{attraction.description}}
+          </p>
+        </div>
+      </mat-card-content>
+      <!--<mat-card-actions>-->
+        <!--<button mat-button>LIKE</button>-->
+        <!--<button mat-button>SHARE</button>-->
+      <!--</mat-card-actions>-->
+    </mat-card>
+  </ng-container>
 </div>

@@ -7,6 +7,7 @@ import { TripsComponent } from './trips/trips.component';
 import { TripDetailComponent } from './trips/trip-detail/trip-detail.component';
 import { PlanComponent } from './trips/trip-detail/plan/plan.component';
 import { AttractionsComponent } from './trips/trip-detail/places/attractions/attractions.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
 
@@ -16,7 +17,10 @@ const routes: Routes = [
   {path: 'trips/detail', component: TripDetailComponent, canActivate: [AuthGuard]},
   {path: 'trips/detail/plan', component: PlanComponent, canActivate: [AuthGuard]},
   {path: 'trips/detail/attractions', component: AttractionsComponent, canActivate: [AuthGuard]},
+  {path: 'page-not-found', component: PageNotFoundComponent},
   {path: '', redirectTo: '/trips', pathMatch: 'full'},
+  {path: '**', redirectTo: '/page-not-found'},
+
 ];
 
 @NgModule({

@@ -13,7 +13,7 @@ export class TripService {
 
   public currentTripSubject$: BehaviorSubject<Trip>;
   public currentTrip: Observable<Trip>;
-
+  tripCurrency = 'THB';
 
   constructor(
     private authService: AuthService,

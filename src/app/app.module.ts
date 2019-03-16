@@ -24,6 +24,7 @@ import { TripsComponent } from './trips/trips.component';
 import { TripDetailComponent } from './trips/trip-detail/trip-detail.component';
 import { PlanComponent } from './trips/trip-detail/plan/plan.component';
 import { AttractionsComponent } from './trips/trip-detail/places/attractions/attractions.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AttractionsComponent } from './trips/trip-detail/places/attractions/att
     TripDetailComponent,
     PlanComponent,
     AttractionsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
