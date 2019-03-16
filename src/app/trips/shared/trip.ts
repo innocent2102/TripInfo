@@ -1,6 +1,7 @@
 export interface Trip {
   name: string;
   id: string;
+  //attractions: Attraction[];
   // date: Date;
   // plan: Plan;
   // placesToVisit: PlacesToVisit;
@@ -18,21 +19,11 @@ export interface Plan {
 }
 
 export interface PlacesToVisit {
-  attractions: Attraction[];
   beaches: Beach[];
   restaurants: Restaurant[];
 }
 
-export interface Attraction {
-  name: string;
-  city?: string;
-  photoURL?: string;
-  description?: string;
-  addressLink?: string;
-  price?: number;
-  openingHours?: string;
-  additionalInfo?: string;
-}
+
 
 export interface Beach {
   name: string;

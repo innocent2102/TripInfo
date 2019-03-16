@@ -44,7 +44,7 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  public get currentUserValue(): User {
+  currentUserValue(): User {
     return this.currentUserSubject.value;
   }
 

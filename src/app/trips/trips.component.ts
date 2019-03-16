@@ -21,7 +21,6 @@ export class TripsComponent implements OnInit {
     private tripService: TripService) { }
 
   ngOnInit() {
-    this.tripService.clearChosenTrip();
     this.trips$ = this.tripService.getTrips();
   }
 
@@ -32,6 +31,7 @@ export class TripsComponent implements OnInit {
   chooseTrip(trip: Trip) {
     this.addTripToStore(trip.name, trip.id);
     localStorage.setItem('currentTrip', JSON.stringify(trip));
+    this.tripService.currentTripSubject$.next(trip);
     // TODO: Probably to remove due to different solution of data share
     this.router.navigate([`trips/detail/plan`]);
   }

@@ -29,6 +29,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatCardModule,
     MatExpansionModule,
     MatMenuModule,
+    MatCardModule,
   ],
   exports: [
     MatButtonModule,
@@ -43,6 +44,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatCardModule,
     MatExpansionModule,
     MatMenuModule,
+    MatCardModule,
   ],
 })
 export class CoreModule { }

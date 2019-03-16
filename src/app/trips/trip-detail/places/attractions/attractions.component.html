@@ -1,3 +1,6 @@
 <p>
   attractions works!
 </p>
+<div *ngIf="attractions$ | async as attraction">
+  {{attraction | json}}
+</div>

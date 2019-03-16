@@ -11,8 +11,9 @@ import { DataHelper } from './helpers/DataHelper';
 })
 export class TripService {
 
-  private currentTripSubject$: BehaviorSubject<Trip>;
+  public currentTripSubject$: BehaviorSubject<Trip>;
   public currentTrip: Observable<Trip>;
+
 
   constructor(
     private authService: AuthService,
@@ -29,12 +30,8 @@ export class TripService {
     return DataHelper.hasValue(localStorage.getItem('currentTrip'));
   }
 
-  clearChosenTrip() {
-    localStorage.removeItem('currentTrip');
-  }
-
   getTrips() {
-    const userId = this.authService.currentUserValue.uid;
+    const userId = this.authService.currentUserValue().uid;
     return this.af.collection(`users/${userId}/trips`)
       .snapshotChanges()
       .pipe(
