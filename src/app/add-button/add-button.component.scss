@@ -1,0 +1,15 @@
+@import "../../styles";
+
+button{
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  border-radius: 30px;
+  border: none;
+  font-size: 30px;
+  background: $brand-color;
+  color: white;
+  cursor: pointer;
+}

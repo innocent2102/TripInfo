@@ -17,8 +17,8 @@
     </mat-toolbar>
     <mat-nav-list>
       <mat-expansion-panel #matExpansionPanel [hideToggle]="item.children.length === 0" *ngFor="let item of menuItems">
-        <mat-expansion-panel-header (click)="expandPanel(matExpansionPanel, item)" >
-          <mat-panel-title class="menu-item" color="primary" [routerLink]="['trips/detail/plan']">
+        <mat-expansion-panel-header (click)="expandPanel(matExpansionPanel, item)" [routerLink]="['trips/detail/plan']">
+          <mat-panel-title class="menu-item" color="primary">
             <i class="material-icons">{{item.icon}}</i>
            <span class="item-name">
              {{item.name}}
