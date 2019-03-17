@@ -5,7 +5,7 @@
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(tripService.isTripChosen && !(isHandset$ | async))">
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -39,7 +39,7 @@
 
   <!--Main container-->
   <mat-sidenav-content>
-    <mat-toolbar color="primary" class="main-toolbar">
+    <mat-toolbar class="main-toolbar">
       <ng-container *ngIf="tripService.isTripChosen">
         <button
           type="button"

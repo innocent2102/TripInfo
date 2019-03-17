@@ -29,6 +29,11 @@
   flex: 1 1 auto;
 }
 
+.mat-toolbar{
+  color: white;
+  background: $brand-color;
+}
+
 mat-sidenav-container{
   height: 100%;
 
