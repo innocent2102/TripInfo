@@ -1,21 +1,23 @@
 @import "../../../../../styles";
 
 .main-content{
-  padding: 15px;
+  padding: 0 10px;
+
+  i{
+    font-size: 20px;
+  }
 
   .mat-card-title{
     color: $brand-color;
-    cursor: pointer;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
   }
 
   .mat-card-subtitle{
     display: flex;
     align-items: center;
     margin-bottom: 12px;
-
-    i{
-      font-size: 20px;
-    }
 
     .attraction-time{
       margin-left: 5px;
@@ -39,6 +41,7 @@
     mat-card-header{
       .mat-card-header-text{
         margin: 0;
+        flex: 1 1 auto;
       }
     }
 
@@ -50,5 +53,14 @@
     img{
       max-width: none;
     }
+  }
+
+  mat-spinner{
+    top: 50px;
+    margin: 0 auto;
+  }
+
+  .additional-info{
+    margin-top: 10px;
   }
 }

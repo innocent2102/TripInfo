@@ -1,9 +1,12 @@
 <div class="main-content">
-  <ng-container *ngIf="attractions$ | async as attractions">
+  <ng-container *ngIf="attractions$ | async as attractions else loadingSpinner">
     <mat-card *ngFor="let attraction of attractions">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title (click)="onNavigate(attraction.addressLink)">{{attraction.name}}</mat-card-title>
+        <mat-card-title>
+          <span class="pointer" (click)="onNavigate(attraction.addressLink)">{{attraction.name}}</span>
+          <i class="material-icons pointer">mode_edit</i>
+        </mat-card-title>
         <mat-card-subtitle>
 
           <!--Available Time-->
@@ -23,11 +26,12 @@
       </mat-card-header>
       <img mat-card-image [src]="attraction.photoURL" alt="Wat Pho">
       <mat-card-content>
-        <div>
-          <p>
-            {{attraction.description}}
-          </p>
-        </div>
+        <p>
+          {{attraction.description}}
+        </p>
+        <p class="additional-info" *ngIf="attraction.additionalInfo">
+          <span class="bold">Info:</span> {{attraction.additionalInfo}}
+        </p>
       </mat-card-content>
       <!--<mat-card-actions>-->
         <!--<button mat-button>LIKE</button>-->
@@ -35,4 +39,7 @@
       <!--</mat-card-actions>-->
     </mat-card>
   </ng-container>
+  <ng-template #loadingSpinner>
+    <mat-spinner></mat-spinner>
+  </ng-template>
 </div>
