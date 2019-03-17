@@ -10,6 +10,8 @@ import {
   MatExpansionModule,
   MatMenuModule,
   MatProgressSpinnerModule,
+  MatFormFieldModule,
+  MatInputModule,
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -32,6 +34,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatMenuModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
     MatButtonModule,
@@ -48,7 +52,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatMenuModule,
     MatCardModule,
     MatProgressSpinnerModule,
-
+    MatFormFieldModule,
+    MatInputModule,
   ],
 })
 export class CoreModule { }

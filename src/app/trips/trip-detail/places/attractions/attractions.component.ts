@@ -6,6 +6,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../../../../shared/services/auth.service';
 import { TripService } from '../../../shared/trip.service';
 import { TripBaseComponent } from '../../trip.base';
+import { MatDialog } from '@angular/material';
+import { AddAttractionComponent } from './add-attraction/add-attraction.component';
 
 @Component({
   selector: 'app-attractions',
@@ -17,11 +19,16 @@ export class AttractionsComponent extends TripBaseComponent implements OnInit {
 
   attractions$: Observable<Attraction[]>;
 
+  // TODO: Temporary
+  animal: string;
+  name: string;
+
   constructor(
     af: AngularFirestore,
     authService: AuthService,
     tripService: TripService,
-    private attractionService: AttractionService) {
+    private attractionService: AttractionService,
+    public dialog: MatDialog) {
     super(af, authService, tripService);
   }
 
@@ -31,5 +38,17 @@ export class AttractionsComponent extends TripBaseComponent implements OnInit {
 
   onNavigate(url: string) {
     window.open(url);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddAttractionComponent, {
+      width: '600px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 }

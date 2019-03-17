@@ -26,6 +26,8 @@ import { PlanComponent } from './trips/trip-detail/plan/plan.component';
 import { AttractionsComponent } from './trips/trip-detail/places/attractions/attractions.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddButtonComponent } from './add-button/add-button.component';
+import { AddAttractionComponent } from './trips/trip-detail/places/attractions/add-attraction/add-attraction.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { AddButtonComponent } from './add-button/add-button.component';
     AttractionsComponent,
     PageNotFoundComponent,
     AddButtonComponent,
+    AddAttractionComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,9 @@ import { AddButtonComponent } from './add-button/add-button.component';
     NgxsModule.forRoot([TripState], {developmentMode: !environment.production}),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
+    ReactiveFormsModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddAttractionComponent]
 })
 export class AppModule { }
