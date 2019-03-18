@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'trips/detail/plan', component: PlanComponent, canActivate: [AuthGuard]},
   {path: 'trips/detail/attractions', component: AttractionsComponent, canActivate: [AuthGuard]},
   {path: 'page-not-found', component: PageNotFoundComponent},
-  {path: '', redirectTo: '/trips', pathMatch: 'full'},
+  {path: '', redirectTo: '/trips/detail/attractions', pathMatch: 'full'},
   {path: '**', redirectTo: '/page-not-found'},
 
 ];

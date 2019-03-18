@@ -4,7 +4,7 @@
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>
-          <span class="pointer" (click)="onNavigate(attraction.addressLink)">{{attraction.name}}</span>
+          <span [ngClass]="{'pointer' : attraction.addressLink}" (click)="onNavigate(attraction.addressLink)">{{attraction.name}}</span>
           <i class="material-icons pointer">mode_edit</i>
         </mat-card-title>
         <mat-card-subtitle>
@@ -24,7 +24,7 @@
           </ng-template>
           </mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image [src]="attraction.photoURL" alt="Wat Pho">
+      <img mat-card-image *ngIf="attraction.photoURL" [src]="attraction.photoURL" alt="Wat Pho">
       <mat-card-content>
         <p>
           {{attraction.description}}

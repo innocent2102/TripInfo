@@ -9,6 +9,7 @@ import { TripBaseComponent } from '../../trip.base';
 import { MatDialog } from '@angular/material';
 import { AddAttractionComponent } from './add-attraction/add-attraction.component';
 
+
 @Component({
   selector: 'app-attractions',
   templateUrl: './attractions.component.html',
@@ -36,8 +37,10 @@ export class AttractionsComponent extends TripBaseComponent implements OnInit {
     this.attractions$ = this.attractionService.getAttractions();
   }
 
-  onNavigate(url: string) {
-    window.open(url);
+  onNavigate(addressLink: string) {
+    if (addressLink) {
+      window.open(addressLink);
+    }
   }
 
   openDialog(): void {
@@ -50,5 +53,9 @@ export class AttractionsComponent extends TripBaseComponent implements OnInit {
       console.log('The dialog was closed');
       this.animal = result;
     });
+  }
+
+  hasAddressLink(addressLink: string): boolean {
+    return Boolean(addressLink);
   }
 }

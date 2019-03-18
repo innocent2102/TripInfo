@@ -33,6 +33,6 @@ export class TripsComponent implements OnInit {
     localStorage.setItem('currentTrip', JSON.stringify(trip));
     this.tripService.currentTripSubject$.next(trip);
     // TODO: Probably to remove due to different solution of data share
-    this.router.navigate([`trips/detail/plan`]);
+    this.router.navigate([`trips/detail/attractions`]);
   }
 }
