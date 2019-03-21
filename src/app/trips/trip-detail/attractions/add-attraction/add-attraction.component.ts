@@ -1,0 +1,51 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../../../shared/services/auth.service';
+import { TripService } from '../../../shared/trip.service';
+import { Attraction } from '../../../shared/models/attraction';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { TripDetailService } from '../../shared/trip-detail.service';
+
+@Component({
+  selector: 'app-add-attraction',
+  templateUrl: './add-attraction.component.html',
+  styleUrls: ['./add-attraction.component.scss']
+})
+export class AddAttractionComponent implements OnInit {
+
+  attractionForm: FormGroup;
+  collectionPath: string;
+  userId: string;
+  tripId: string;
+
+  constructor(
+    private af: AngularFirestore,
+    private tripService: TripService,
+    private tripDetailService: TripDetailService,
+    private authService: AuthService,
+    private formBuilder: FormBuilder) {
+    this.attractionForm = formBuilder.group({
+      name: [null, Validators.required],
+      city: [null],
+      photoURL: [null],
+      description: [null],
+      addressLink: [null],
+      price: [null],
+      openFromTime: [null],
+      openToTime: [null],
+      additionalInfo: [null],
+    });
+  }
+
+  ngOnInit() {
+    this.userId = this.authService.currentUserValue().uid;
+    this.tripId = this.tripService.currentTripValue().id;
+    this.collectionPath = `users/${this.userId}/trips/${this.tripId}/attractions`;
+  }
+
+  onSubmit(attraction: Attraction) {
+    this.tripDetailService.addDocument(attraction, this.collectionPath);
+    this.attractionForm.reset();
+  }
+
+}

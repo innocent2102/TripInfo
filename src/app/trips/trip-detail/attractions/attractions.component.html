@@ -1,5 +1,5 @@
 <div class="main-content">
-  <ng-container *ngIf="attractions$ | async as attractions else loadingSpinner">
+  <ng-container *ngIf="attractions$ | async as attractions; else loadingSpinner">
     <mat-card *ngFor="let attraction of attractions">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
@@ -33,10 +33,6 @@
           <span class="bold">Info:</span> {{attraction.additionalInfo}}
         </p>
       </mat-card-content>
-      <!--<mat-card-actions>-->
-        <!--<button mat-button>LIKE</button>-->
-        <!--<button mat-button>SHARE</button>-->
-      <!--</mat-card-actions>-->
     </mat-card>
   </ng-container>
   <ng-template #loadingSpinner>

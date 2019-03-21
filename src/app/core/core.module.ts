@@ -11,7 +11,7 @@ import {
   MatMenuModule,
   MatProgressSpinnerModule,
   MatFormFieldModule,
-  MatInputModule,
+  MatInputModule, MatDatepickerModule, MatNativeDateModule,
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -36,6 +36,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
   ],
   exports: [
     MatButtonModule,
@@ -54,6 +57,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
   ],
 })
 export class CoreModule { }
