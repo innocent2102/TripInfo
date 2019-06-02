@@ -4,12 +4,13 @@
   margin: 10px;
 }
 
-.item{
+.item {
   box-shadow: 0px 0px 6px -1px rgba(150, 150, 150, 0.89);
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   margin: 15px 5px;
+  background: white;
 }
 
 .item-date {
@@ -25,7 +26,7 @@
   border-left: 2px solid lightgrey;
 }
 
-.date-day{
+.date-day {
   font-size: 16px;
   letter-spacing: 1px;
 }
@@ -37,7 +38,7 @@
   align-items: center;
 }
 
-li{
+li {
   padding: 5px;
   margin-left: 15px;
   list-style-type: circle;

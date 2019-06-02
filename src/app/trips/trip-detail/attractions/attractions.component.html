@@ -4,14 +4,19 @@
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>
-          <span [ngClass]="{'pointer' : attraction.addressLink}" (click)="onNavigate(attraction.addressLink)">{{attraction.name}}</span>
-          <i class="material-icons pointer">mode_edit</i>
+          <span [ngClass]="{'pointer' : attraction.addressLink}"
+                (click)="onNavigate(attraction.addressLink)">{{attraction.name}}</span>
+          <div class="icons-container">
+            <i (click)="removeAttraction(attraction.id)" class="material-icons pointer">mode_delete</i>
+            <i class="material-icons pointer">mode_edit</i>
+          </div>
         </mat-card-title>
         <mat-card-subtitle>
 
           <!--Available Time-->
           <i class="material-icons">access_time</i>
-          <span *ngIf="attraction.openFromTime && attraction.openToTime; else allDay" class="attraction-time">{{attraction?.openFromTime}} - {{attraction.openToTime}}</span>
+          <span *ngIf="attraction.openFromTime && attraction.openToTime; else allDay"
+                class="attraction-time">{{attraction?.openFromTime}} - {{attraction.openToTime}}</span>
           <ng-template #allDay>
             <span class="attraction-time">Cały dzień</span>
           </ng-template>
@@ -22,7 +27,7 @@
           <ng-template #free>
             <span>Free</span>
           </ng-template>
-          </mat-card-subtitle>
+        </mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image *ngIf="attraction.photoURL" [src]="attraction.photoURL" alt="Wat Pho">
       <mat-card-content>
