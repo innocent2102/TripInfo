@@ -40,6 +40,10 @@ export class TripDetailService {
     this.af.collection<Attraction>(collectionPath).add(document);
   }
 
+  editDocument(collectionName: string, docId: string, data) {
+    return this.af.collection<Attraction>(`${this.tripDocumentPath}/${collectionName}`).doc(docId).update(data);
+  }
+
   removeDocument(collectionName: string, docId: string) {
     return this.af.collection<Attraction>(`${this.tripDocumentPath}/${collectionName}`).doc(docId).delete();
   }

@@ -8,7 +8,7 @@
                 (click)="onNavigate(attraction.addressLink)">{{attraction.name}}</span>
           <div class="icons-container">
             <i (click)="removeAttraction(attraction.id)" class="material-icons pointer">mode_delete</i>
-            <i class="material-icons pointer">mode_edit</i>
+            <i (click)="editAttraction(attraction)" class="material-icons pointer">mode_edit</i>
           </div>
         </mat-card-title>
         <mat-card-subtitle>

@@ -36,6 +36,9 @@ export class AttractionsComponent extends TripBaseComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(AddAttractionComponent, {
       width: '600px',
+      data: {
+        type: 'add'
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -45,5 +48,19 @@ export class AttractionsComponent extends TripBaseComponent implements OnInit {
 
   removeAttraction(id: string) {
     this.tripDetailService.removeDocument('attractions', id);
+  }
+
+  editAttraction(attraction: Attraction) {
+    const dialogRef = this.dialog.open(AddAttractionComponent, {
+      width: '600px',
+      data: {
+        type: 'edit',
+        attraction
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }
