@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddAttractionComponent } from './add-attraction.component';
+import { AttractionModalComponent } from './attraction-modal.component';
 
-describe('AddAttractionComponent', () => {
-  let component: AddAttractionComponent;
-  let fixture: ComponentFixture<AddAttractionComponent>;
+describe('AttractionModalComponent', () => {
+  let component: AttractionModalComponent;
+  let fixture: ComponentFixture<AttractionModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddAttractionComponent ]
+      declarations: [ AttractionModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddAttractionComponent);
+    fixture = TestBed.createComponent(AttractionModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

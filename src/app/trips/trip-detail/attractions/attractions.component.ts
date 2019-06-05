@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Attraction } from '../../shared/models/attraction';
 import { TripBaseComponent } from '../trip-detail.base';
 import { MatDialog } from '@angular/material';
-import { AddAttractionComponent } from './add-attraction/add-attraction.component';
+import { AttractionModalComponent } from './attraction-modal/attraction-modal.component';
 import { TripDetailService } from '../shared/trip-detail.service';
 
 @Component({
@@ -34,7 +34,7 @@ export class AttractionsComponent extends TripBaseComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AddAttractionComponent, {
+    const dialogRef = this.dialog.open(AttractionModalComponent, {
       width: '600px',
       data: {
         type: 'add'
@@ -51,7 +51,7 @@ export class AttractionsComponent extends TripBaseComponent implements OnInit {
   }
 
   editAttraction(attraction: Attraction) {
-    const dialogRef = this.dialog.open(AddAttractionComponent, {
+    const dialogRef = this.dialog.open(AttractionModalComponent, {
       width: '600px',
       data: {
         type: 'edit',

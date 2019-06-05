@@ -8,13 +8,11 @@ import { TripDetailService } from '../../shared/trip-detail.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 @Component({
-  selector: 'app-add-attraction',
-  templateUrl: './add-attraction.component.html',
-  styleUrls: ['./add-attraction.component.scss']
+  selector: 'app-attraction-modal',
+  templateUrl: './attraction-modal.component.html',
+  styleUrls: ['./attraction-modal.component.scss']
 })
-export class AddAttractionComponent implements OnInit {
-
-
+export class AttractionModalComponent implements OnInit {
 
   attractionForm: FormGroup;
   collectionPath: string;
@@ -23,7 +21,7 @@ export class AddAttractionComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<AddAttractionComponent>,
+    private dialogRef: MatDialogRef<AttractionModalComponent>,
     private af: AngularFirestore,
     private tripService: TripService,
     private tripDetailService: TripDetailService,

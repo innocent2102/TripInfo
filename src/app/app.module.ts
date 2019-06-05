@@ -27,7 +27,7 @@ import { PlanComponent } from './trips/trip-detail/plan/plan.component';
 import { AttractionsComponent } from './trips/trip-detail/attractions/attractions.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddButtonComponent } from './add-button/add-button.component';
-import { AddAttractionComponent } from './trips/trip-detail/attractions/add-attraction/add-attraction.component';
+import { AttractionModalComponent } from './trips/trip-detail/attractions/attraction-modal/attraction-modal.component';
 
 
 @NgModule({
@@ -41,7 +41,7 @@ import { AddAttractionComponent } from './trips/trip-detail/attractions/add-attr
     AttractionsComponent,
     PageNotFoundComponent,
     AddButtonComponent,
-    AddAttractionComponent,
+    AttractionModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +58,6 @@ import { AddAttractionComponent } from './trips/trip-detail/attractions/add-attr
     ReactiveFormsModule,
   ],
   bootstrap: [AppComponent],
-  entryComponents: [AddAttractionComponent]
+  entryComponents: [AttractionModalComponent]
 })
 export class AppModule { }
