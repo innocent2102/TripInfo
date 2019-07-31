@@ -5,6 +5,7 @@ import { TripService } from '../../shared/trip.service';
 import { Observable } from 'rxjs';
 import { Attraction } from '../../shared/models/attraction';
 import { map } from 'rxjs/operators';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -36,11 +37,11 @@ export class TripDetailService {
       );
   }
 
-  addDocument(document, collectionPath: string) {
+  addDocument(document, collectionPath: string, form: FormGroup) {
     this.af.collection<Attraction>(collectionPath).add(document);
   }
 
-  editDocument(collectionName: string, docId: string, data) {
+  editDocument(collectionName: string, docId: string, data, form: FormGroup) {
     return this.af.collection<Attraction>(`${this.tripDocumentPath}/${collectionName}`).doc(docId).update(data);
   }
 

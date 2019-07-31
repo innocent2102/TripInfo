@@ -65,11 +65,12 @@ export class AttractionModalComponent implements OnInit {
 
   onSubmit(attraction: Attraction) {
     if (this.data.type === 'edit') {
-      this.tripDetailService.editDocument('attractions', this.data.attraction.id, attraction);
-      this.attractionForm.reset();
+      this.tripDetailService.editDocument('attractions', this.data.attraction.id, attraction,  this.attractionForm);
       this.dialogRef.close();
+      this.attractionForm.reset();
     } else {
-      this.tripDetailService.addDocument(attraction, this.collectionPath);
+      this.tripDetailService.addDocument(attraction, this.collectionPath, this.attractionForm);
+      this.dialogRef.close();
       this.attractionForm.reset();
     }
 
