@@ -28,6 +28,7 @@ import { AttractionsComponent } from './trips/trip-detail/attractions/attraction
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddButtonComponent } from './add-button/add-button.component';
 import { AttractionModalComponent } from './trips/trip-detail/attractions/attraction-modal/attraction-modal.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -56,6 +57,9 @@ import { AttractionModalComponent } from './trips/trip-detail/attractions/attrac
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     ReactiveFormsModule,
+  ],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent],
   entryComponents: [AttractionModalComponent]
