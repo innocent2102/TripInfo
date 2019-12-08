@@ -1,13 +1,13 @@
 @import "../../../../styles";
 
-.main-content{
+.main-content {
   padding: 0 10px;
 
-  i{
+  i {
     font-size: 20px;
   }
 
-  .mat-card-title{
+  .mat-card-title {
     color: $brand-color;
     letter-spacing: 1px;
     display: flex;
@@ -18,53 +18,55 @@
     display: flex;
   }
 
-  .mat-card-subtitle{
+  .mat-card-subtitle {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
 
-    .attraction-time{
+    .attraction-time {
       margin-left: 5px;
     }
 
-    .price-icon{
+    .price-icon {
       margin-left: 10px;
       margin-right: -2px;
     }
   }
 
-  .mat-card{
+  .mat-card {
     max-width: 350px;
     min-width: 290px;
     margin: 20px;
+    display: inline-block;
+    border: 1px solid #ddd;
 
-    .mat-card-avatar{
+    .mat-card-avatar {
       display: none;
     }
 
-    mat-card-header{
-      .mat-card-header-text{
+    mat-card-header {
+      .mat-card-header-text {
         margin: 0;
         flex: 1 1 auto;
       }
     }
 
-    .mat-card-image{
+    .mat-card-image {
       width: calc(100% + 32px);
       margin: 0 0 10px -16px;
     }
 
-    img{
+    img {
       max-width: none;
     }
   }
 
-  mat-spinner{
+  mat-spinner {
     top: 50px;
     margin: 0 auto;
   }
 
-  .additional-info{
+  .additional-info {
     margin-top: 10px;
   }
 }
