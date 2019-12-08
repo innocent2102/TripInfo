@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './shared/services/auth.service';
 import { TripService } from './trips/shared/trip.service';
-import { MENU_ITEMS } from './trips/shared/mocks';
+import { MENU_ITEMS } from './trips/shared/mocks/menu-items';
 import { Observable } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
