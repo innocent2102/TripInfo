@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../../../shared/services/auth.service';
 import { TripService } from '../../shared/trip.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Attraction } from '../../shared/models/attraction';
 import { map } from 'rxjs/operators';
 import { FormGroup } from '@angular/forms';
+import { environment } from '../../../../environments/environment';
+import { ATTRACTIONS } from '../../shared/mocks/attractions_mock';
 
 @Injectable({
   providedIn: 'root'
@@ -25,16 +27,21 @@ export class TripDetailService {
   }
 
   getCollection(collectionName: string): Observable<Attraction[]> {
-    return this.af.collection<Attraction>(`${this.tripDocumentPath}/${collectionName}`)
-      .snapshotChanges()
-      .pipe(
-        map(actions => actions.map(a => {
-          const data = a.payload.doc.data() as Attraction;
-          const id = a.payload.doc.id;
-          console.log(`${collectionName} fetched`);
-          return { id, ...data };
-        }))
-      );
+    if (environment.production) {
+      return this.af.collection<Attraction>(`${this.tripDocumentPath}/${collectionName}`)
+        .snapshotChanges()
+        .pipe(
+          map(actions => actions.map(a => {
+            const data = a.payload.doc.data() as Attraction;
+            const id = a.payload.doc.id;
+            console.log(`${collectionName} fetched`);
+            return { id, ...data };
+          }))
+        );
+    } else {
+      return of(ATTRACTIONS);
+    }
+
   }
 
   addDocument(document, collectionPath: string, form: FormGroup) {

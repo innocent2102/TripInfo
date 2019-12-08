@@ -1,7 +1,7 @@
 import { Attraction } from '../models/attraction';
 import { DataHelper } from '../helpers/DataHelper';
 
-const attractions: Attraction[] = [
+export const ATTRACTIONS: Attraction[] = [
   {
     name: 'Pałac kultury',
     id: '1',

@@ -4,7 +4,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { Trip } from '../shared/trip';
 import { TripService } from '../shared/trip.service';
-import { MENU_ITEMS } from '../shared/mocks';
+import { MENU_ITEMS } from '../shared/mocks/menu-items';
 
 @Component({
   selector: 'app-trip-detail',

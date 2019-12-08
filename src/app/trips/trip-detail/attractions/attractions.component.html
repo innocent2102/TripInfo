@@ -4,10 +4,9 @@
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>
-          <span [ngClass]="{'pointer' : attraction.addressLink}"
-                (click)="onNavigate(attraction.addressLink)">{{attraction.name}}</span>
+          <span>{{attraction.name}}</span>
           <div class="icons-container">
-<!--            <i (click)="removeAttraction(attraction.id)" class="material-icons pointer">mode_delete</i>-->
+            <i (click)="removeAttraction(attraction.id)" class="material-icons pointer">mode_delete</i>
             <i (click)="editAttraction(attraction)" class="material-icons pointer">mode_edit</i>
           </div>
         </mat-card-title>
@@ -33,9 +32,6 @@
       <mat-card-content>
         <p>
           {{attraction.description}}
-        </p>
-        <p class="additional-info" *ngIf="attraction.additionalInfo">
-          <span class="bold">Info:</span> {{attraction.additionalInfo}}
         </p>
       </mat-card-content>
     </mat-card>
